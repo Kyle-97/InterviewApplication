@@ -1,0 +1,21 @@
+<h1>Task Summary</h1>
+
+<div *ngIf="isLoading" id="loading-indicator"></div>
+
+<table *ngIf="!isLoading">
+    <!-- HEADER -->
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th *ngIf="!hideDeleteButton"></th>
+    </tr>
+
+    <!-- TASK ROW -->
+    <tr *ngFor="let task of tasks" [ngClass]="{'taskRow': true }">
+        <td>{{task.name}}</td>
+        <td>{{task.description}}</td>
+        <td *ngIf="!hideDeleteButton">
+            <button>Delete Task</button>
+        </td>
+    </tr>
+</table>
